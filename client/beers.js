@@ -1,3 +1,5 @@
+Meteor.subscribe('beers');
+
 Template.beers.helpers({
     beersList: function() {
         return beers.find({

@@ -1,3 +1,5 @@
+Meteor.subscribe('beers');
+
 Template.addBeer.events({
     'keypress .txt-beer': function(event) {
 
