@@ -1,6 +1,10 @@
 Template.beers.helpers({
     beersList: function() {
-        return beers.find({}, {
+        return beers.find({
+            vote: {
+                $gte: 0
+            }
+        }, {
             sort: {
                 vote: -1
             }

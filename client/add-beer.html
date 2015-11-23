@@ -1,10 +1,21 @@
 <template name="addBeer">
     <h2>Add your beer</h2>
 
-    <div class="input-group">
-        <input type="text" class="form-control txt-beer">
-        <span class="input-group-btn">
-            <button class="btn btn-success">Add</button>
-        </span>
+    <div class="form-field">
+        <div class="input-group">
+            <input type="text" class="form-control txt-beer">
+            <span class="input-group-btn">
+                <button class="btn btn-success">Add a New Beer</button>
+            </span>
+        </div>
+    </div>
+    or
+    <div class="form-field">
+        <select class="dropdown-beer form-control">
+            <option value="">select from the list</option>
+            {{#each beersList}}
+                <option value="{{_id}}">{{name}}</option>
+            {{/each}}
+        </select>
     </div>
 </template>
