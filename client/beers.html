@@ -1,19 +1,27 @@
 <template name="beers">
-    <h2>List of beers (fake data... for now):</h2>
+    <h2>List of beers:</h2>
 
-    <ul>
+    <ul class="list-inline beers-list">
 
         {{#each beersList}}
-        <li>
-            {{name}}
+        <li class="beer" style="background-image: url('{{image}}')">
 
-            {{#if vote}}
-                ({{vote}})
-            {{else}}
-                (no votes yet)
-            {{/if}}
+            <span class="caption">
+                {{name}}
 
-            - <a class="action-vote">vote up</a>
+                <a class="action-vote text-success">
+                    <span class="fa-stack">
+                        <i class="fa fa-square-o fa-stack-2x"></i>
+                        <i class="fa fa-thumbs-o-up fa-stack-1x"></i>
+                    </span>
+                </a>
+
+                {{#if vote}}
+                    ({{vote}})
+                {{else}}
+                    (no votes yet)
+                {{/if}}
+            </span>
         </li>
         {{/each}}
 

@@ -1,0 +1,33 @@
+.beers-list {
+    .beer {
+        margin: 0 15px 15px 0;
+        border:1px solid #ccc;
+        width: 30%;
+        height: 200px;
+        background-size: cover;
+        background-position: center center;
+        position: relative;
+    }
+
+    .caption {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        background: #fff;
+        padding: 10px;
+        width: 100%;
+        border-top:1px solid #ccc;
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+
+    .action-vote {
+        cursor: pointer;
+        float: right;
+
+        &:hover {
+            background: #444;
+            color: #fff;
+        }
+    }
+}
