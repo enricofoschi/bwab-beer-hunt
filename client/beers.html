@@ -6,7 +6,14 @@
         {{#each beersList}}
         <li>
             {{name}}
-            <a>vote up</a>
+
+            {{#if vote}}
+                ({{vote}})
+            {{else}}
+                (no votes yet)
+            {{/if}}
+
+            - <a class="action-vote">vote up</a>
         </li>
         {{/each}}
 
