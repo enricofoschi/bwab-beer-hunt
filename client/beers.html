@@ -2,17 +2,13 @@
     <h2>List of beers (fake data... for now):</h2>
 
     <ul>
+
+        {{#each beersList}}
         <li>
-            Beer 1
+            {{name}}
             <a>vote up</a>
         </li>
-        <li>
-            Beer 2
-            <a>vote up</a>
-        </li>
-        <li>
-            Beer 3
-            <a>vote up</a>
-        </li>
+        {{/each}}
+
     </ul>
 </template>
