@@ -2,12 +2,33 @@ var list = JSON.parse('[{"name":"Adler-Brauerei Coswig","url":"https://de.wikipe
 
 Meteor.startup(function () {
 
+    // Initializing beers list
     if (!beers.find().fetch().length) {
 
-        for(var i = 0; i < list.length; i++) {
+        for (var i = 0; i < list.length; i++) {
             beers.insert(list[i]);
         }
 
+    }
+
+    // Adding an image from Google on all beers
+    var allBeers = beers.find().fetch();
+
+    for (var i = 0; i < allBeers.length; i++) {
+
+        var beer = allBeers[i];
+
+        if (!beer.image) {
+            var response = HTTP.get('https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=' + encodeURIComponent(beer.name + ' Bier'));
+            var images = JSON.parse(response.content).responseData.results;
+            if(images.length && images[0].tbUrl) {
+                beers.update(beer._id, {
+                    $set: {
+                        image: images[0].tbUrl
+                    }
+                });
+            }
+        }
     }
 
 });
