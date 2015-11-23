@@ -1,6 +1,10 @@
 Template.beers.helpers({
     beersList: function() {
-        return beers.find().fetch();
+        return beers.find({}, {
+            sort: {
+                vote: -1
+            }
+        }).fetch();
     }
 });
 
