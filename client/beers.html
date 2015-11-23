@@ -6,6 +6,14 @@
         {{#each beersList}}
         <li class="beer" style="background-image: url('{{image}}')">
 
+            {{#if image}}
+            {{else}}
+                <span class="image">
+                    <i class="fa fa-beer"></i>
+                </span>
+            {{/if}}
+
+
             <span class="caption">
                 {{name}}
 
