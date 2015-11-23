@@ -4,11 +4,24 @@ Template.addBeer.events({
         if (event.keyCode === 13) {
 
             beers.insert({
-                name: event.target.value
+                name: event.target.value,
+                vote: 1
             });
 
             event.target.value = '';
         }
+    },
+
+    'click .btn-add-beer': function(event, instance) {
+
+        var txtInput = instance.find('.txt-beer');
+
+        beers.insert({
+            name: txtInput.value,
+            vote: 1
+        });
+
+        txtInput.value = '';
     },
 
     'change .dropdown-beer': function(event) {
